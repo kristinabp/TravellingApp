@@ -1,0 +1,155 @@
+{
+    "data": [
+      {
+        "city": "Sofia",
+        "restaurantName": "Happy",
+        "location": "Lulin"
+      },
+      {
+        "city": "Varna",
+        "restaurantName": "Italiano",
+        "location": "Center"
+      },
+      {
+        "city": "Plovdiv",
+        "restaurantName": "Burger King",
+        "location": "Mladost"
+      },
+      {
+        "city": "Burgas",
+        "restaurantName": "McDonald's",
+        "location": "Lozenets"
+      },
+      {
+        "city": "Ruse",
+        "restaurantName": "Pizza Hut",
+        "location": "Druzhba"
+      },
+      {
+        "city": "Stara Zagora",
+        "restaurantName": "Sushi Bar",
+        "location": "Oborishte"
+      },
+      {
+        "city": "Pleven",
+        "restaurantName": "KFC",
+        "location": "Slatina"
+      },
+      {
+        "city": "Sliven",
+        "restaurantName": "Subway",
+        "location": "Krasno Selo"
+      },
+      {
+        "city": "Dobrich",
+        "restaurantName": "Starbucks",
+        "location": "Lyulin"
+      },
+      {
+        "city": "Shumen",
+        "restaurantName": "Wendy's",
+        "location": "Studentski grad"
+      },
+      {
+        "city": "Sofia",
+        "restaurantName": "Italiano",
+        "location": "Mladost"
+      },
+      {
+        "city": "Varna",
+        "restaurantName": "Burger King",
+        "location": "Center"
+      },
+      {
+        "city": "Plovdiv",
+        "restaurantName": "McDonald's",
+        "location": "Lulin"
+      },
+      {
+        "city": "Burgas",
+        "restaurantName": "Pizza Hut",
+        "location": "Lozenets"
+      },
+      {
+        "city": "Ruse",
+        "restaurantName": "Sushi Bar",
+        "location": "Druzhba"
+      },
+      {
+        "city": "Stara Zagora",
+        "restaurantName": "KFC",
+        "location": "Oborishte"
+      },
+      {
+        "city": "Pleven",
+        "restaurantName": "Subway",
+        "location": "Slatina"
+      },
+      {
+        "city": "Sliven",
+        "restaurantName": "Starbucks",
+        "location": "Krasno Selo"
+      },
+      {
+        "city": "Dobrich",
+        "restaurantName": "Wendy's",
+        "location": "Lyulin"
+      },
+      {
+        "city": "Shumen",
+        "restaurantName": "Happy",
+        "location": "Studentski grad"
+      },
+      {
+        "city": "Sofia",
+        "restaurantName": "Burger King",
+        "location": "Mladost"
+      },
+      {
+        "city": "Varna",
+        "restaurantName": "McDonald's",
+        "location": "Center"
+      },
+      {
+        "city": "Plovdiv",
+        "restaurantName": "Pizza Hut",
+        "location": "Lulin"
+      },
+      {
+        "city": "Burgas",
+        "restaurantName": "Sushi Bar",
+        "location": "Lozenets"
+      },
+      {
+        "city": "Ruse",
+        "restaurantName": "KFC",
+        "location": "Druzhba"
+      },
+      {
+        "city": "Stara Zagora",
+        "restaurantName": "Subway",
+        "location": "Oborishte"
+      },
+      {
+        "city": "Pleven",
+        "restaurantName": "Starbucks",
+        "location": "Slatina"
+      },
+      {
+        "city": "Sliven",
+        "restaurantName": "Wendy's",
+        "location": "Krasno Selo"
+      },
+      {
+        "city": "Dobrich",
+        "restaurantName": "Happy",
+        "location": "Lyulin"
+      },
+      {
+        "city": "Shumen",
+        "restaurantName": "Italiano",
+        "location": "Studentski grad"
+      }
+    ]
+  }
+  
