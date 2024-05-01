@@ -1,0 +1,245 @@
+{ 
+    "data": [
+        {
+        "id": 1,
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": 2020,
+        "price_per_day": 50,
+        "location": "Sofia"
+        },
+        {
+        "id": 2,
+        "brand": "Volkswagen",
+        "model": "Golf",
+        "year": 2019,
+        "price_per_day": 60,
+        "location": "Plovdiv"
+        },
+        {
+        "id": 3,
+        "brand": "Ford",
+        "model": "Focus",
+        "year": 2018,
+        "price_per_day": 55,
+        "location": "Varna"
+        },
+        {
+        "id": 4,
+        "brand": "BMW",
+        "model": "3 Series",
+        "year": 2021,
+        "price_per_day": 80,
+        "location": "Burgas"
+        },
+        {
+        "id": 5,
+        "brand": "Mercedes-Benz",
+        "model": "C-Class",
+        "year": 2019,
+        "price_per_day": 75,
+        "location": "Sofia"
+        },
+        {
+        "id": 6,
+        "brand": "Audi",
+        "model": "A3",
+        "year": 2020,
+        "price_per_day": 70,
+        "location": "Plovdiv"
+        },
+        {
+        "id": 7,
+        "brand": "Renault",
+        "model": "Clio",
+        "year": 2017,
+        "price_per_day": 40,
+        "location": "Varna"
+        },
+        {
+        "id": 8,
+        "brand": "Toyota",
+        "model": "Camry",
+        "year": 2018,
+        "price_per_day": 65,
+        "location": "Burgas"
+        },
+        {
+        "id": 9,
+        "brand": "Volkswagen",
+        "model": "Passat",
+        "year": 2019,
+        "price_per_day": 70,
+        "location": "Sofia"
+        },
+        {
+        "id": 10,
+        "brand": "Ford",
+        "model": "Fiesta",
+        "year": 2017,
+        "price_per_day": 45,
+        "location": "Plovdiv"
+        },
+        {
+        "id": 11,
+        "brand": "BMW",
+        "model": "5 Series",
+        "year": 2020,
+        "price_per_day": 85,
+        "location": "Varna"
+        },
+        {
+        "id": 12,
+        "brand": "Mercedes-Benz",
+        "model": "E-Class",
+        "year": 2018,
+        "price_per_day": 80,
+        "location": "Burgas"
+        },
+        {
+        "id": 13,
+        "brand": "Audi",
+        "model": "A4",
+        "year": 2019,
+        "price_per_day": 75,
+        "location": "Sofia"
+        },
+        {
+        "id": 14,
+        "brand": "Renault",
+        "model": "Megane",
+        "year": 2016,
+        "price_per_day": 35,
+        "location": "Plovdiv"
+        },
+        {
+        "id": 15,
+        "brand": "Toyota",
+        "model": "Yaris",
+        "year": 2018,
+        "price_per_day": 50,
+        "location": "Varna"
+        },
+        {
+        "id": 16,
+        "brand": "Volkswagen",
+        "model": "Tiguan",
+        "year": 2019,
+        "price_per_day": 75,
+        "location": "Burgas"
+        },
+        {
+        "id": 17,
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 2019,
+        "price_per_day": 90,
+        "location": "Sofia"
+        },
+        {
+        "id": 18,
+        "brand": "BMW",
+        "model": "X3",
+        "year": 2020,
+        "price_per_day": 95,
+        "location": "Plovdiv"
+        },
+        {
+        "id": 19,
+        "brand": "Mercedes-Benz",
+        "model": "GLC",
+        "year": 2019,
+        "price_per_day": 85,
+        "location": "Varna"
+        },
+        {
+        "id": 20,
+        "brand": "Audi",
+        "model": "Q5",
+        "year": 2018,
+        "price_per_day": 80,
+        "location": "Burgas"
+        },
+        {
+        "id": 21,
+        "brand": "Renault",
+        "model": "Captur",
+        "year": 2017,
+        "price_per_day": 45,
+        "location": "Sofia"
+        },
+        {
+        "id": 22,
+        "brand": "Toyota",
+        "model": "RAV4",
+        "year": 2019,
+        "price_per_day": 70,
+        "location": "Plovdiv"
+        },
+        {
+        "id": 23,
+        "brand": "Volkswagen",
+        "model": "Arteon",
+        "year": 2020,
+        "price_per_day": 80,
+        "location": "Varna"
+        },
+        {
+        "id": 24,
+        "brand": "Ford",
+        "model": "Escape",
+        "year": 2018,
+        "price_per_day": 65,
+        "location": "Burgas"
+        },
+        {
+        "id": 25,
+        "brand": "BMW",
+        "model": "X5",
+        "year": 2019,
+        "price_per_day": 100,
+        "location": "Sofia"
+        },
+        {
+        "id": 26,
+        "brand": "Mercedes-Benz",
+        "model": "GLE",
+        "year": 2020,
+        "price_per_day": 95,
+        "location": "Plovdiv"
+        },
+        {
+        "id": 27,
+        "brand": "Audi",
+        "model": "Q7",
+        "year": 2019,
+        "price_per_day": 90,
+        "location": "Varna"
+        },
+        {
+        "id": 28,
+        "brand": "Renault",
+        "model": "Kadjar",
+        "year": 2018,
+        "price_per_day": 55,
+        "location": "Burgas"
+        },
+        {
+        "id": 29,
+        "brand": "Toyota",
+        "model": "Highlander",
+        "year": 2020,
+        "price_per_day": 85,
+        "location": "Sofia"
+        },
+        {
+        "id": 30,
+        "brand": "Volkswagen",
+        "model": "Passat",
+        "year": 2019,
+        "price_per_day": 70,
+        "location": "Plovdiv"
+        }
+    ]
+}
+    
