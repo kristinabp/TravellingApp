@@ -11,11 +11,11 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
     "@hello-pangea/dnd": "^16.3.0",
-    
     "@mui/icons-material": "^5.10.9",
     "@mui/lab": "^5.0.0-alpha.119",
     "@mui/material": "^5.11.8",
     "@mui/x-date-pickers": "^6.12.1",
+    "@react-google-maps/api": "^2.19.3",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
