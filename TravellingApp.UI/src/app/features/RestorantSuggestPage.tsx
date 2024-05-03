@@ -50,11 +50,11 @@ const RestorantSuggest = () => {
   };
 
   const handleRestaurantClick = (restaurant: any) => {
-    setSelectedRestaurant(restaurant); // Set the selected restaurant
+    setSelectedRestaurant(restaurant);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value); // Update search query state
+    setSearchQuery(event.target.value);
   };
 
   const filteredData = data.filter((restaurant) => {

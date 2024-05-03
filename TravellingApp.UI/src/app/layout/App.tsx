@@ -11,6 +11,8 @@ import Home from "../features/HomePage.tsx";
 import Restorant from "../features/RestorantSuggestPage.tsx";
 import Wheather from "../features/WheatherPage.tsx";
 import RentCar from "../features/RentCarPage.tsx";
+import Hotels from "../features/Hotels.tsx";
+import Monuments from "../features/Monuments.tsx";
 
 function App() {
   const expandedKey = "containerExpanded";
@@ -36,6 +38,8 @@ function App() {
           <Route path="/wheather" element={<Wheather />} />
           <Route path="/restorantSuggest" element={<Restorant />} />
           <Route path="/rentCar" element={<RentCar />} />
+          <Route path="/hotels" element={<Hotels />} />
+          <Route path="/monuments" element={<Monuments />} />
         </Routes>
       </Container>
       <ToastContainer position="bottom-right" />

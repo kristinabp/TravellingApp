@@ -18,6 +18,12 @@ const NavBar = () => {
       <li>
         <Link to="/rentCar">Rent a car</Link>
       </li>
+      <li>
+        <Link to="/hotels">Hotels</Link>
+      </li>
+      <li>
+        <Link to="/monuments">Monuments</Link>
+      </li>
     </ul>
   </nav>
   );
