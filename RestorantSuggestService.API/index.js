@@ -4,6 +4,8 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 const PORT = 3050;
@@ -16,6 +18,39 @@ app.use(bodyParser.json());
 const YELP_API_KEY = 'xspGCZKnbTP7H2oBoqT-FCY4QFTn9y5SuYZj-8afMSOZmxb-Ho0LqpQ6Wk4VSbkj3KbBpAqZygPKltOyIk7CtBpYBIbIuQbDAl7IN0zZvFpp88GWf7jJUypo4lczZnYx';
 const apiKey = 'AIzaSyD9B-0oisrbexDlVkhMzoHYyj0lLTE4EXc';
 
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Express API with Swagger',
+      version: '1.0.0',
+      description: 'Documentation for Express API',
+    },
+    servers: [
+      {
+        url: 'http://localhost:3000', // Change this to match your server URL
+      },
+    ],
+  },
+  apis: ['./routes/*.js'], // Path to the API routes files
+};
+
+const specs = swaggerJsdoc(options);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+
+/**
+ * @swagger
+ * /restaurants:
+ *   get:
+ *     description: Returns all restorants
+ *     responses:
+ *       200:
+ *         description: OK
+ *       500:
+ *         description: Internal Server Error
+ */
 app.get('/restaurants', async (req, res) => {
     const city = req.body.city;
 
@@ -40,6 +75,24 @@ app.get('/restaurants', async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /restorantsSug/:city:
+ *   get:
+ *     description: Returns all restorants
+ *     parameters:
+ *       - name: city
+ *         in: path
+ *         description: city for restorants
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: OK
+ *       500:
+ *         description: Internal Server Error
+ */
 app.get('/restorantsSug/:city', (req, res) => {
   const city = req.params.city;
 
