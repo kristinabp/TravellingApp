@@ -28,3 +28,10 @@ services:
       - "8000:8000"
     volumes:
       - ./HotelSuggestService.API:/HotelSuggestService.API
+
+  monumentservice-api:
+    build: ./MonumentService.API
+    ports:
+      - "8008:8008"
+    volumes:
+      - ./MonumentService.API:/MonumentService.API
