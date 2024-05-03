@@ -5,3 +5,6 @@
 4. Run `yarn start`
 
 еми малко го направих с npm, че не ми се сваля yarn (има предимство за yarn, ама ако го правим с докер)
+
+
+![travelApp drawio](https://github.com/kristinabp/TravellingApp/assets/33426427/812c8da2-8338-4afe-977a-9e4055e0b298)
