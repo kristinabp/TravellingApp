@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.formStyle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+  
+.formStyle div {
+    flex: 0 0 30%;
+    margin-bottom: 15px;
+}
+  
+.formStyle label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+.formStyle input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

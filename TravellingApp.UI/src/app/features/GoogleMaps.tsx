@@ -1,14 +1,14 @@
 import { LoadScript, GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
-const libraries = ["places", 'geometry']; // Optional, for geocoding or places search
+const libraries = ["places", 'geometry'];
 const mapContainerStyle = {
-  width: "100vw", // Adjust width and height as needed
+  width: "700vw",
   height: "400px",
 };
 
 const GoogleMaps = (coordinates) => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyD9B-0oisrbexDlVkhMzoHYyj0lLTE4EXc", // Replace with your API key
+    googleMapsApiKey: "AIzaSyD9B-0oisrbexDlVkhMzoHYyj0lLTE4EXc",
     libraries,
   });
 
@@ -18,20 +18,20 @@ const GoogleMaps = (coordinates) => {
   const markerData = {
     lat: coordinates.lat, 
     lng: coordinates.lng,
-    title: "My Custom Marker", // Optional title for the marker
-    description: "This is a custom marker I placed!", // Optional description
+    title: "My Custom Marker",
+    description: "This is a custom marker I placed!",
   };
 
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={100}
-      center={{ lat: coordinates.lat, lng: coordinates.lng }} // Adjust initial center coordinates as needed
+      center={{ lat: coordinates.lat, lng: coordinates.lng }}
     >
     <Marker
-        key={markerData.lat + markerData.lng} // Use a unique key for each marker
+        key={markerData.lat + markerData.lng}
         position={{ lat: markerData.lat, lng: markerData.lng }}
-        title={markerData.title} // Optional title displayed on hover
+        title={markerData.title}
         onClick={(event) => {
             // Access marker position here:
             const clickedMarkerLat = event.latLng.lat();

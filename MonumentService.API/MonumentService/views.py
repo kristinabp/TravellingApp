@@ -3,8 +3,15 @@ import requests
 
 def get_monuments(request):
     api_key = 'kingerte'
-    endpoint_url = 'https://api.europeana.eu/record/v2/search.json?wskey=kingerte&query=%22Paris%22'
+
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        city = data.get('city')
+    else:
+        city = "Paris"
     
+    endpoint_url = f'https://api.europeana.eu/record/v2/search.json?wskey={api_key}&query="{city}"'
+
     try:
         response = requests.get(endpoint_url)
         

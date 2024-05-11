@@ -63,7 +63,7 @@ const Monuments = () => {
           {filteredData.map((monument, index) => (
             <div className="restaurant-item" onClick={() => handleMonumentClick(monument)} key={index}>
               <h2>{monument.dataProvider}</h2>
-              <img id="restorantImg" src={monument.edmPreview} />
+              <img id="monumentImg" src={monument.edmPreview} />
             </div>
           ))}
         </div>
@@ -74,7 +74,7 @@ const Monuments = () => {
           <div className="modal-content">
             <span className="close">&times;</span>
             <h2>{selectedMonument.dataProvider}</h2>
-            <img id="restorantImg" src={selectedMonument.edmPreview} />
+            <img id="monumentImg" src={selectedMonument.edmPreview} />
             <p>Description: {selectedMonument.dcDescription}</p>
           </div>
         </div>

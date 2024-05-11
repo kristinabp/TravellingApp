@@ -43,7 +43,7 @@ function App() {
         </Routes>
       </Container>
       <ToastContainer position="bottom-right" />
-      <Footer />
+      {/* <Footer /> */}
     </ThemeProvider>
   );
 }

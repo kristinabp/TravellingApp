@@ -10,11 +10,17 @@ const RestorantSuggest = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string>('');
 
   useEffect(() => {
     //fetchData();
     fetchDataYelp();
   }, []);
+
+  const handleData = ({ city }) => {
+    console.log("Received data from Home component:");
+    console.log("City:", city);
+  };
 
   // const fetchData = async () => {
   //   try {
@@ -35,26 +41,23 @@ const RestorantSuggest = () => {
   const fetchDataYelp = async () => {
     try {
       const response = await fetch('http://localhost:3050/restaurants');
+
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
-      const jsonData = await response.json();
-      console.log(jsonData);
-      setCoordinates(jsonData.coordinates);
-      setData(jsonData);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
+        const jsonData = await response.json();
+        //console.log(jsonData);
+        setCoordinates(jsonData.coordinates);
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
   };
 
   const handleRestaurantClick = (restaurant: any) => {
     setSelectedRestaurant(restaurant);
-  };
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
   };
 
   const filteredData = data.filter((restaurant) => {
@@ -70,12 +73,6 @@ const RestorantSuggest = () => {
 
   return <>
     <div>
-      <input
-        type="text"
-        placeholder="Search by restaurant name or city"
-        value={searchQuery}
-        onChange={handleSearchChange}
-      />
       <ul>
         {loading ? (
           <p>Loading...</p>

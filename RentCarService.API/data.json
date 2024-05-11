@@ -7,7 +7,8 @@
         "year": 2020,
         "price_per_day": 50,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 2,
         "brand": "Volkswagen",
@@ -15,7 +16,8 @@
         "year": 2019,
         "price_per_day": 60,
         "location": "Plovdiv"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 3,
         "brand": "Ford",
@@ -23,7 +25,8 @@
         "year": 2018,
         "price_per_day": 55,
         "location": "Varna"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 4,
         "brand": "BMW",
@@ -31,7 +34,8 @@
         "year": 2021,
         "price_per_day": 80,
         "location": "Burgas"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 5,
         "brand": "Mercedes-Benz",
@@ -39,7 +43,8 @@
         "year": 2019,
         "price_per_day": 75,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 6,
         "brand": "Audi",
@@ -47,7 +52,8 @@
         "year": 2020,
         "price_per_day": 70,
         "location": "Plovdiv"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 7,
         "brand": "Renault",
@@ -55,7 +61,8 @@
         "year": 2017,
         "price_per_day": 40,
         "location": "Varna"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 8,
         "brand": "Toyota",
@@ -63,7 +70,8 @@
         "year": 2018,
         "price_per_day": 65,
         "location": "Burgas"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 9,
         "brand": "Volkswagen",
@@ -71,7 +79,8 @@
         "year": 2019,
         "price_per_day": 70,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 10,
         "brand": "Ford",
@@ -79,7 +88,8 @@
         "year": 2017,
         "price_per_day": 45,
         "location": "Plovdiv"
-        },
+        ,"rentalStatus": "available" 
+        ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 11,
         "brand": "BMW",
@@ -87,7 +97,7 @@
         "year": 2020,
         "price_per_day": 85,
         "location": "Varna"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 12,
         "brand": "Mercedes-Benz",
@@ -95,7 +105,7 @@
         "year": 2018,
         "price_per_day": 80,
         "location": "Burgas"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 13,
         "brand": "Audi",
@@ -103,7 +113,7 @@
         "year": 2019,
         "price_per_day": 75,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 14,
         "brand": "Renault",
@@ -111,7 +121,7 @@
         "year": 2016,
         "price_per_day": 35,
         "location": "Plovdiv"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 15,
         "brand": "Toyota",
@@ -119,7 +129,7 @@
         "year": 2018,
         "price_per_day": 50,
         "location": "Varna"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 16,
         "brand": "Volkswagen",
@@ -127,7 +137,7 @@
         "year": 2019,
         "price_per_day": 75,
         "location": "Burgas"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 17,
         "brand": "Ford",
@@ -135,7 +145,7 @@
         "year": 2019,
         "price_per_day": 90,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 18,
         "brand": "BMW",
@@ -143,7 +153,7 @@
         "year": 2020,
         "price_per_day": 95,
         "location": "Plovdiv"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 19,
         "brand": "Mercedes-Benz",
@@ -151,7 +161,7 @@
         "year": 2019,
         "price_per_day": 85,
         "location": "Varna"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 20,
         "brand": "Audi",
@@ -159,7 +169,7 @@
         "year": 2018,
         "price_per_day": 80,
         "location": "Burgas"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 21,
         "brand": "Renault",
@@ -167,7 +177,7 @@
         "year": 2017,
         "price_per_day": 45,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 22,
         "brand": "Toyota",
@@ -175,7 +185,7 @@
         "year": 2019,
         "price_per_day": 70,
         "location": "Plovdiv"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 23,
         "brand": "Volkswagen",
@@ -183,7 +193,7 @@
         "year": 2020,
         "price_per_day": 80,
         "location": "Varna"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 24,
         "brand": "Ford",
@@ -191,7 +201,7 @@
         "year": 2018,
         "price_per_day": 65,
         "location": "Burgas"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 25,
         "brand": "BMW",
@@ -199,7 +209,7 @@
         "year": 2019,
         "price_per_day": 100,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 26,
         "brand": "Mercedes-Benz",
@@ -207,7 +217,7 @@
         "year": 2020,
         "price_per_day": 95,
         "location": "Plovdiv"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 27,
         "brand": "Audi",
@@ -215,7 +225,7 @@
         "year": 2019,
         "price_per_day": 90,
         "location": "Varna"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 28,
         "brand": "Renault",
@@ -223,7 +233,7 @@
         "year": 2018,
         "price_per_day": 55,
         "location": "Burgas"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 29,
         "brand": "Toyota",
@@ -231,7 +241,7 @@
         "year": 2020,
         "price_per_day": 85,
         "location": "Sofia"
-        },
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
         {
         "id": 30,
         "brand": "Volkswagen",
@@ -239,6 +249,247 @@
         "year": 2019,
         "price_per_day": 70,
         "location": "Plovdiv"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 31,
+            "brand": "Volkswagen",
+            "model": "Passat",
+            "year": 2019,
+            "price_per_day": 70,
+            "location": "New York"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 32,
+            "brand": "Toyota",
+            "model": "Camry",
+            "year": 2020,
+            "price_per_day": 80,
+            "location": "Los Angeles"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 33,
+            "brand": "Ford",
+            "model": "Mustang",
+            "year": 2018,
+            "price_per_day": 100,
+            "location": "Chicago"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 34,
+            "brand": "Chevrolet",
+            "model": "Malibu",
+            "year": 2017,
+            "price_per_day": 75,
+            "location": "Houston"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 35,
+            "brand": "Honda",
+            "model": "Accord",
+            "year": 2021,
+            "price_per_day": 85,
+            "location": "Phoenix"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 36,
+            "brand": "Nissan",
+            "model": "Altima",
+            "year": 2019,
+            "price_per_day": 75,
+            "location": "Philadelphia"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 37,
+            "brand": "BMW",
+            "model": "3 Series",
+            "year": 2020,
+            "price_per_day": 120,
+            "location": "San Antonio"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 38,
+            "brand": "Mercedes-Benz",
+            "model": "C-Class",
+            "year": 2018,
+            "price_per_day": 110,
+            "location": "San Diego"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 39,
+            "brand": "Audi",
+            "model": "A4",
+            "year": 2019,
+            "price_per_day": 100,
+            "location": "Dallas"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 40,
+            "brand": "Hyundai",
+            "model": "Sonata",
+            "year": 2020,
+            "price_per_day": 80,
+            "location": "San Jose"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 41,
+            "brand": "Kia",
+            "model": "Optima",
+            "year": 2018,
+            "price_per_day": 75,
+            "location": "Austin"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 42,
+            "brand": "Subaru",
+            "model": "Outback",
+            "year": 2019,
+            "price_per_day": 90,
+            "location": "Jacksonville"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 43,
+            "brand": "Tesla",
+            "model": "Model 3",
+            "year": 2021,
+            "price_per_day": 150,
+            "location": "Fort Worth"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 44,
+            "brand": "Lexus",
+            "model": "ES",
+            "year": 2020,
+            "price_per_day": 130,
+            "location": "Columbus"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 45,
+            "brand": "Jeep",
+            "model": "Wrangler",
+            "year": 2018,
+            "price_per_day": 110,
+            "location": "Charlotte"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 46,
+            "brand": "GMC",
+            "model": "Terrain",
+            "year": 2019,
+            "price_per_day": 95,
+            "location": "Indianapolis"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 47,
+            "brand": "Chrysler",
+            "model": "300",
+            "year": 2017,
+            "price_per_day": 85,
+            "location": "San Francisco"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 48,
+            "brand": "Buick",
+            "model": "Enclave",
+            "year": 2018,
+            "price_per_day": 120,
+            "location": "Seattle"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 49,
+            "brand": "Cadillac",
+            "model": "XT5",
+            "year": 2020,
+            "price_per_day": 140,
+            "location": "Denver"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 50,
+            "brand": "Mazda",
+            "model": "CX-5",
+            "year": 2019,
+            "price_per_day": 90,
+            "location": "Washington"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 51,
+            "brand": "Infiniti",
+            "model": "Q50",
+            "year": 2018,
+            "price_per_day": 110,
+            "location": "Boston"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 52,
+            "brand": "Volvo",
+            "model": "XC60",
+            "year": 2020,
+            "price_per_day": 130,
+            "location": "Detroit"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 53,
+            "brand": "Porsche",
+            "model": "Macan",
+            "year": 2019,
+            "price_per_day": 200,
+            "location": "Nashville"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 54,
+            "brand": "Jaguar",
+            "model": "XF",
+            "year": 2018,
+            "price_per_day": 180,
+            "location": "Memphis"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 55,
+            "brand": "Land Rover",
+            "model": "Range Rover Evoque",
+            "year": 2020,
+            "price_per_day": 250,
+            "location": "Portland"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 56,
+            "brand": "Land Rover",
+            "model": "Discovery Sport",
+            "year": 2021,
+            "price_per_day": 220,
+            "location": "Las Vegas"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 57,
+            "brand": "Fiat",
+            "model": "500",
+            "year": 2019,
+            "price_per_day": 70,
+            "location": "Louisville"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 58,
+            "brand": "MINI",
+            "model": "Cooper",
+            "year": 2020,
+            "price_per_day": 100,
+            "location": "Oklahoma City"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 59,
+            "brand": "Smart",
+            "model": "Fortwo",
+            "year": 2018,
+            "price_per_day": 80,
+            "location": "Tucson"
+        ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26" },
+        {
+            "id": 60,
+            "brand": "Volkswagen",
+            "model": "Jetta",
+            "year": 2021,
+            "price_per_day": 90,
+            "location": "Atlanta"
+            ,"rentalStatus": "available" ,"startDate": "2024-05-25" ,"endDate": "2024-05-26"
         }
     ]
 }
