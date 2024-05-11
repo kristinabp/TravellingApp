@@ -5,6 +5,9 @@ WORKDIR ./
 RUN pip install django
 RUN pip install requests
 RUN pip install drf-yasg
+RUN pip install serpapi
+RUN pip install google-search-results
+RUN pip install django-cors-headers
 
 COPY ./ ./
 

@@ -18,6 +18,11 @@ app.use(bodyParser.json());
 const YELP_API_KEY = 'xspGCZKnbTP7H2oBoqT-FCY4QFTn9y5SuYZj-8afMSOZmxb-Ho0LqpQ6Wk4VSbkj3KbBpAqZygPKltOyIk7CtBpYBIbIuQbDAl7IN0zZvFpp88GWf7jJUypo4lczZnYx';
 const apiKey = 'AIzaSyD9B-0oisrbexDlVkhMzoHYyj0lLTE4EXc';
 
+const cities = {
+  europe: ['London', 'Paris', 'Berlin', 'Madrid', 'Rome'],
+  usa: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix']
+};
+
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -28,7 +33,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000', // Change this to match your server URL
+        url: 'http://localhost:3000',
       },
     ],
   },
@@ -39,6 +44,15 @@ const specs = swaggerJsdoc(options);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
+let cityGlobal = "";
+
+app.post('/restaurantsData', async (req, res) => {
+  const jsonString = JSON.stringify(req.body.city);
+  var city = jsonString.replace(/"/g, '');
+  //console.log("city backend: " + city);
+  cityGlobal = city;
+
+});
 
 /**
  * @swagger
@@ -52,8 +66,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
  *         description: Internal Server Error
  */
 app.get('/restaurants', async (req, res) => {
-    const city = req.body.city;
-
 
   try {
     const response = await axios.get('https://api.yelp.com/v3/businesses/search', {
@@ -61,18 +73,50 @@ app.get('/restaurants', async (req, res) => {
         Authorization: `Bearer ${YELP_API_KEY}`,
       },
       params: {
-        term: 'restaurants', // Search term
-        location: 'Paris', // Location
-        limit: 30, // Limit the number of results
+        term: 'restaurants',
+        location: `${cityGlobal}`,
+        limit: 30,
       },
     });
 
     const restaurants = response.data.businesses;
-    res.json(restaurants);
+    //console.log(restaurants);
+    res.status(200).json(restaurants);
   } catch (error) {
     console.error('Error fetching restaurants:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
+});
+
+
+/**
+ * @swagger
+ * /cities/europe:
+ *   get:
+ *     description: Returns all cities in Europe
+ *     responses:
+ *       200:
+ *         description: OK
+ *       500:
+ *         description: Internal Server Error
+ */
+app.get('/cities/europe', (req, res) => {
+  res.status(200).json(cities.europe);
+});
+
+/**
+ * @swagger
+ * /cities/usa:
+ *   get:
+ *     description: Returns all cities in USA
+ *     responses:
+ *       200:
+ *         description: OK
+ *       500:
+ *         description: Internal Server Error
+ */
+app.get('/cities/usa', (req, res) => {
+  res.status(200).json(cities.usa);
 });
 
 /**

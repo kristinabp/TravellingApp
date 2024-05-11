@@ -2,37 +2,54 @@ import requests
 from django.http import JsonResponse
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from serpapi import GoogleSearch
 
+class PutEndpoint(APIView):
+    city = None
+    startDate = None
+    endDate = None
 
-@swagger_auto_schema(
-    method='get',
-    operation_description='Get hotels in a specific location.',
-    responses={200: 'OK', 400: 'Bad Request', 500: 'Internal Server Error'}
-)
+    @swagger_auto_schema(
+        operation_description='Save parameters.',
+        responses={200: 'OK', 400: 'Bad Request', 500: 'Internal Server Error'}
+    )
+    def put(self, request, format=None):
+        self.city = request.data.get('city')
+        self.startDate = request.data.get('startDate')
+        self.endDate = request.data.get('endDate')
 
-@api_view(['GET'])
-def get_hotels(request):
-    endpoint_url = 'https://hotels4.p.rapidapi.com/locations/v3/search'
+        PutEndpoint.city = self.city
+        PutEndpoint.startDate = self.startDate
+        PutEndpoint.endDate = self.endDate
 
-    params = {}
-    headers = {}
-    
-    params['q'] = 'new york'
-    params['locale'] = 'en_US'
-    params['langid'] = '1033'
-    params['siteid'] = '300000001'
+        return JsonResponse({'message': 'Parameters saved successfully.'})
 
-    headers['X-RapidAPI-Key'] = '2ff55d3e02msh4797c8d69ef4fa1p11b7d3jsn288eceb75521'
-    headers['X-RapidAPI-Host'] = 'hotels4.p.rapidapi.com'
+    @swagger_auto_schema(
+        operation_description='Get hotels in a specific location.',
+        responses={200: 'OK', 400: 'Bad Request', 500: 'Internal Server Error'}
+    )
+    def get(self, request, format=None):
+        city = self.city
+        startDate = self.startDate
+        endDate = self.endDate
 
-    try:
-        response = requests.get(endpoint_url, params=params, headers=headers)
-        
-        if response.status_code == 200:
-            hotel_data = response.json()
-            print(hotel_data)
-            return JsonResponse(hotel_data)
-        else:
-            return JsonResponse({'error': 'Failed to fetch hotels'}, status=response.status_code)
-    except requests.exceptions.RequestException as e:
-        return JsonResponse({'error': 'nishto ne stava'}, status=500)
+        params = {
+            "engine": "google_hotels",
+            "q": "Bali Resorts",
+            "check_in_date": "2024-05-11",
+            "check_out_date": "2024-05-12",
+            "adults": "2",
+            "currency": "USD",
+            "gl": "us",
+            "hl": "en",
+            "api_key": "1cab4e7d0d946f7098aae7c4641ee68330f30a879dd7d2eb6324e8ae92d4d320"
+        }
+
+        search = GoogleSearch(params)
+        results = search.get_dict()
+
+        print(results)
+        return JsonResponse(results)
