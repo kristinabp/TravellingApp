@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import GoogleMaps from "./GoogleMaps.tsx";
 import './styles/Hotels.css';
-const Hotels = () => {
+const Hotels = ({maxOut}) => {
     const [data, setData] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedHotel, setSelectedHotel] = useState<any | null>(null);
 
     useEffect(() => {
-        fetchData();
+        fetchDataHotels();
     }, []);
 
-    const fetchData = async () => {
+    const fetchDataHotels = async () => {
         try {
         const response = await fetch('http://localhost:8000/hotels');
         if (!response.ok) {

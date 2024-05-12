@@ -7,6 +7,7 @@ def get_monuments(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         city = data.get('city')
+        print(city)
     else:
         city = "Paris"
     

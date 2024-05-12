@@ -1,9 +1,9 @@
+import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-const Monuments = () => {
+const Monuments = ({maxOut}) => {
     const [data, setData] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
-    const [searchQuery, setSearchQuery] = useState('');
     const [selectedMonument, setSelectedMonument] = useState<any | null>(null);
 
     useEffect(() => {
@@ -33,38 +33,33 @@ const Monuments = () => {
         setSelectedMonument(monument);
     };
 
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(event.target.value); // Update search query state
-    };
-
-    const filteredData = data.filter((monument) => {
-        // Check if restaurant.name and restaurant.city are defined before accessing their properties
-        const nameMatches = monument.dataProvider && monument.dataProvider[0].toLowerCase().includes(searchQuery.toLowerCase());
-        return nameMatches;
-    });
-
     const closeModal = () => {
         setSelectedMonument(null);
       };
 
   return <>
     <div>
-      <input
-        type="text"
-        placeholder="Search by restaurant name or city"
-        value={searchQuery}
-        onChange={handleSearchChange}
-      />
       <ul>
         {loading ? (
           <p>Loading...</p>
         ) : (
           <div className="restaurant-list">
-          {filteredData.map((monument, index) => (
-            <div className="restaurant-item" onClick={() => handleMonumentClick(monument)} key={index}>
-              <h2>{monument.dataProvider}</h2>
-              <img id="monumentImg" src={monument.edmPreview} />
+          {data.slice(0, maxOut).map((monument, index) => (
+          <Box
+            height={200}
+            width={250}
+            my={4}
+            display="flex"
+            alignItems="center"
+            gap={4}
+            p={2}
+            sx={{ border: '2px solid grey', padding: '20px' }}
+          >
+            <div onClick={() => handleMonumentClick(monument)} key={index}>
+              <h2>{monument?.dataProvider?.slice(0, 2)}</h2>
+              <img src={monument.edmPreview} style={{ width: '130px', height: '120px' }} />
             </div>
+          </Box>
           ))}
         </div>
         )}

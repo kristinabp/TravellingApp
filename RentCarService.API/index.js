@@ -76,24 +76,23 @@ app.get('/rentCar', (req, res) => {
     const jsonData = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8');
     const carData = JSON.parse(jsonData);
 
-    let availableCars = [];
-    let availableCarIndex = 0;
+    // let availableCars = [];
+    // let availableCarIndex = 0;
 
-    for (let index = 0; index < 60; index++) {
-        let firstDate = new Date(carData.data[index].startDate);
-        let lastDate = new Date(carData.data[index].endDate);
-        //console.log(lastDate);
+    // for (let index = 0; index < 60; index++) {
+    //     let firstDate = new Date(carData.data[index].startDate);
+    //     let lastDate = new Date(carData.data[index].endDate);
 
-        if(lastDate < startDateGlobal) {
-          if(carData.data[index].rentalStatus == "available" && carData.data[index].location == cityGlobal) {
-            availableCars[availableCarIndex] = carData.data[index];
-            availableCarIndex ++;
-          }
-        }
+    //     if(lastDate < startDateGlobal) {
+    //       if(carData.data[index].rentalStatus == "available" && carData.data[index].location == cityGlobal) {
+    //         availableCars[availableCarIndex] = carData.data[index];
+    //         availableCarIndex ++;
+    //       }
+    //     }
   
-    }
+    // }
 
-    res.status(200).json(availableCars);
+    res.status(200).json(carData.data)//json(availableCars);
   } catch (error) {
       console.error('Error reading data from file:', error);
       res.status(500).json({ error: 'Internal Server Error' });

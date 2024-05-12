@@ -1,8 +1,9 @@
 import { LoadScript, GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import React from "react";
 
 const libraries = ["places", 'geometry'];
 const mapContainerStyle = {
-  width: "700vw",
+  width: "70vw",
   height: "400px",
 };
 
@@ -25,7 +26,7 @@ const GoogleMaps = (coordinates) => {
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
-      zoom={100}
+      zoom={70}
       center={{ lat: coordinates.lat, lng: coordinates.lng }}
     >
     <Marker
