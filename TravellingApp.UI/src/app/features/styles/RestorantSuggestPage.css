@@ -20,6 +20,11 @@
     margin: 5px 0;
 }
 
+p {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
 .modal {
     position: fixed;
     top: 0;

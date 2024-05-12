@@ -7,10 +7,15 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import RestorantSuggest from './RestorantSuggestPage.tsx';
+import Wheather from "./WheatherPage.tsx";
+import RentCar from "./RentCarPage.tsx";
+import Hotels from "./Hotels.tsx";
+import Monuments from "./Monuments.tsx";
 
 const Home = () => {
   const [city, setCity] = useState("");
-  let hasData: boolean = false;
+  let hasData: boolean = true;
 
   const [startDate, setStartDate] = React.useState<Dayjs | null>(
     dayjs("2022-04-17T15:30")
@@ -19,36 +24,32 @@ const Home = () => {
     dayjs("2022-04-17T15:30")
   );
 
-  const handleCityChange = (event) => {
-    setCity(event.target.value);
-  };
-
   const goToHotelsPage = () => {
-    window.location.href = "";
+    window.location.href = "http://localhost:3000/hotels";
   };
 
   const goToMonumentsPage = () => {
-    window.location.href = "";
+    window.location.href = "http://localhost:3000/monuments";
   };
 
   const goReantACarPage = () => {
-    window.location.href = "";
+    window.location.href = "http://localhost:3000/rentCar";
   };
 
   const goToRestaurantsPage = () => {
-    window.location.href = "";
-  };
-
-  const goToGoogleMapsPage = () => {
-    window.location.href = "";
+    window.location.href = "http://localhost:3000/restorantSuggest";
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    console.log(city);
+
+    console.log("test")
+
     fetch("http://localhost:3050/restaurantsData", {
       method: "POST",
-      body: JSON.stringify({ city }),
+      body: JSON.stringify({city}),
       headers: {
         "Content-Type": "application/json",
       },
@@ -62,7 +63,7 @@ const Home = () => {
       },
     });
 
-    /*fetch("http://localhost:8008/monuments", {
+    fetch("http://localhost:8008/monuments", {
       method: "POST",
       body: JSON.stringify({ city }),
       headers: {
@@ -76,7 +77,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    });*/
+    });
     hasData = true;
   };
 
@@ -96,7 +97,8 @@ const Home = () => {
           id="outlined-basic"
           label="City"
           variant="outlined"
-          onChange={handleCityChange}
+          value={city}
+          onChange={(event) => setCity(event.target.value)}
         />
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DemoContainer
@@ -109,6 +111,7 @@ const Home = () => {
             <DateTimePicker
               label="Start date"
               defaultValue={dayjs("2022-04-17T15:30")}
+              value={startDate}
               onChange={(newValue) => setStartDate(newValue)}
             />
           </DemoContainer>
@@ -124,7 +127,8 @@ const Home = () => {
             <DateTimePicker
               label="End date"
               defaultValue={dayjs("2022-04-17T15:30")}
-              onChange={(newValue) => setEndDate(newValue)}
+              value={endDate}
+              onChange={(newValue) => setStartDate(newValue)}
             />
           </DemoContainer>
         </LocalizationProvider>
@@ -140,14 +144,15 @@ const Home = () => {
         <>
           <Box
             component="form"
-            height={90}
+            height={200}
             my={4}
             display="flex"
             alignItems="center"
             gap={4}
             p={2}
-            sx={{ border: "1px solid grey" }}
+            sx={{ border: "1px solid grey", display: 'flex', overflowX: 'hidden', maxWidth: '100%' }}
           >
+            <RestorantSuggest maxOut={3} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"
@@ -158,7 +163,7 @@ const Home = () => {
           </Box>
           <Box
             component="form"
-            height={90}
+            height="fit-content"
             my={4}
             display="flex"
             alignItems="center"
@@ -166,17 +171,18 @@ const Home = () => {
             p={2}
             sx={{ border: "1px solid grey" }}
           >
+          <RentCar maxOut={3} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"
-              onClick={handleSubmit}
+              onClick={goReantACarPage}
             >
               See more
             </Button>
           </Box>
           <Box
             component="form"
-            height={90}
+            height="fit-content"
             my={4}
             display="flex"
             alignItems="center"
@@ -184,17 +190,18 @@ const Home = () => {
             p={2}
             sx={{ border: "1px solid grey" }}
           >
+            <Monuments maxOut={3} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"
-              onClick={handleSubmit}
+              onClick={goToMonumentsPage}
             >
               See more
             </Button>
           </Box>
           <Box
             component="form"
-            height={90}
+            height="fit-content"
             my={4}
             display="flex"
             alignItems="center"
@@ -202,10 +209,11 @@ const Home = () => {
             p={2}
             sx={{ border: "1px solid grey" }}
           >
+          <Hotels maxOut={3} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"
-              onClick={handleSubmit}
+              onClick={goToHotelsPage}
             >
               See more
             </Button>

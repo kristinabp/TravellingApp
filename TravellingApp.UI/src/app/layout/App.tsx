@@ -8,7 +8,7 @@ import { initializeTheme } from "./Theme.ts";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import Home from "../features/HomePage.tsx";
-import Restorant from "../features/RestorantSuggestPage.tsx";
+import RestorantSuggest from "../features/RestorantSuggestPage.tsx";
 import Wheather from "../features/WheatherPage.tsx";
 import RentCar from "../features/RentCarPage.tsx";
 import Hotels from "../features/Hotels.tsx";
@@ -36,14 +36,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/wheather" element={<Wheather />} />
-          <Route path="/restorantSuggest" element={<Restorant />} />
-          <Route path="/rentCar" element={<RentCar />} />
-          <Route path="/hotels" element={<Hotels />} />
-          <Route path="/monuments" element={<Monuments />} />
+          <Route path="/restorantSuggest" element={<RestorantSuggest maxOut={30} />} />
+          <Route path="/rentCar" element={<RentCar maxOut={60} />} />
+          <Route path="/hotels" element={<Hotels maxOut={30} />} />
+          <Route path="/monuments" element={<Monuments maxOut={20} />} />
         </Routes>
       </Container>
       <ToastContainer position="bottom-right" />
-      {/* <Footer /> */}
+      <Footer />
     </ThemeProvider>
   );
 }

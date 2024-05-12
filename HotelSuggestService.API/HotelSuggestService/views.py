@@ -16,7 +16,7 @@ class PutEndpoint(APIView):
         operation_description='Save parameters.',
         responses={200: 'OK', 400: 'Bad Request', 500: 'Internal Server Error'}
     )
-    def put(self, request, format=None):
+    def put_hotels(self, request, format=None):
         self.city = request.data.get('city')
         self.startDate = request.data.get('startDate')
         self.endDate = request.data.get('endDate')
@@ -31,7 +31,7 @@ class PutEndpoint(APIView):
         operation_description='Get hotels in a specific location.',
         responses={200: 'OK', 400: 'Bad Request', 500: 'Internal Server Error'}
     )
-    def get(self, request, format=None):
+    def get_hotels(self, request, format=None):
         city = self.city
         startDate = self.startDate
         endDate = self.endDate

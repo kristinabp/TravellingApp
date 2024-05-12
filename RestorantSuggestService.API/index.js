@@ -49,9 +49,7 @@ let cityGlobal = "";
 app.post('/restaurantsData', async (req, res) => {
   const jsonString = JSON.stringify(req.body.city);
   var city = jsonString.replace(/"/g, '');
-  //console.log("city backend: " + city);
   cityGlobal = city;
-
 });
 
 /**
@@ -80,7 +78,6 @@ app.get('/restaurants', async (req, res) => {
     });
 
     const restaurants = response.data.businesses;
-    //console.log(restaurants);
     res.status(200).json(restaurants);
   } catch (error) {
     console.error('Error fetching restaurants:', error);
