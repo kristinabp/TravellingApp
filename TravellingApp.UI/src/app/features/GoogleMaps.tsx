@@ -1,10 +1,17 @@
-import { LoadScript, GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import {
+  LoadScript,
+  GoogleMap,
+  Marker,
+  useLoadScript,
+} from "@react-google-maps/api";
 import React from "react";
 
-const libraries = ["places", 'geometry'];
+const libraries = ["places", "geometry"];
 const mapContainerStyle = {
-  width: "70vw",
-  height: "400px",
+  width: "730px",
+  height: "200px",
+  display: "flex",
+  wrap: "wrap",
 };
 
 const GoogleMaps = (coordinates) => {
@@ -17,7 +24,7 @@ const GoogleMaps = (coordinates) => {
   if (!isLoaded) return "Loading...";
 
   const markerData = {
-    lat: coordinates.lat, 
+    lat: coordinates.lat,
     lng: coordinates.lng,
     title: "My Custom Marker",
     description: "This is a custom marker I placed!",
@@ -29,17 +36,17 @@ const GoogleMaps = (coordinates) => {
       zoom={70}
       center={{ lat: coordinates.lat, lng: coordinates.lng }}
     >
-    <Marker
+      <Marker
         key={markerData.lat + markerData.lng}
         position={{ lat: markerData.lat, lng: markerData.lng }}
         title={markerData.title}
         onClick={(event) => {
-            // Access marker position here:
-            const clickedMarkerLat = event.latLng.lat();
-            const clickedMarkerLng = event.latLng.lng();
-            // Use these values to zoom the map
-          }}
-    />
+          // Access marker position here:
+          const clickedMarkerLat = event.latLng.lat();
+          const clickedMarkerLng = event.latLng.lng();
+          // Use these values to zoom the map
+        }}
+      />
     </GoogleMap>
   );
 };

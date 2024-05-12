@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./styles/HomePage.css";
 import TextField from "@mui/material/TextField";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import RestorantSuggest from './RestorantSuggestPage.tsx';
+import RestorantSuggest from "./RestorantSuggestPage.tsx";
 import Wheather from "./WheatherPage.tsx";
 import RentCar from "./RentCarPage.tsx";
 import Hotels from "./Hotels.tsx";
@@ -45,11 +45,11 @@ const Home = () => {
 
     console.log(city);
 
-    console.log("test")
+    console.log("test");
 
     fetch("http://localhost:3050/restaurantsData", {
       method: "POST",
-      body: JSON.stringify({city}),
+      body: JSON.stringify({ city }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -62,7 +62,7 @@ const Home = () => {
         "Content-Type": "application/json",
       },
     });
-
+    /*
     fetch("http://localhost:8008/monuments", {
       method: "POST",
       body: JSON.stringify({ city }),
@@ -77,7 +77,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    });*/
     hasData = true;
   };
 
@@ -143,35 +143,27 @@ const Home = () => {
       {hasData && (
         <>
           <Box
-            component="form"
-            height={200}
-            my={4}
-            display="flex"
-            alignItems="center"
-            gap={4}
-            p={2}
-            sx={{ border: "1px solid grey", display: 'flex', overflowX: 'hidden', maxWidth: '100%' }}
+            sx={{
+              borderBottom: 0.5,
+              borderRight: 0.5,
+              borderRadius: 1,
+              padding: 0.5,
+            }}
           >
             <RestorantSuggest maxOut={3} />
-            <Button
-              sx={{ display: "flex" }}
-              variant="contained"
-              onClick={goToRestaurantsPage}
-            >
+            <Button variant="contained" onClick={goToRestaurantsPage}>
               See more
             </Button>
           </Box>
           <Box
-            component="form"
-            height="fit-content"
-            my={4}
-            display="flex"
-            alignItems="center"
-            gap={4}
-            p={2}
-            sx={{ border: "1px solid grey" }}
+            sx={{
+              borderBottom: 0.5,
+              borderRight: 0.5,
+              borderRadius: 1,
+              padding: 0.5,
+            }}
           >
-          <RentCar maxOut={3} />
+            <RentCar maxOut={5} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"
@@ -190,7 +182,7 @@ const Home = () => {
             p={2}
             sx={{ border: "1px solid grey" }}
           >
-            <Monuments maxOut={3} />
+            <Monuments maxOut={5} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"
@@ -209,7 +201,7 @@ const Home = () => {
             p={2}
             sx={{ border: "1px solid grey" }}
           >
-          <Hotels maxOut={3} />
+            <Hotels maxOut={3} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"

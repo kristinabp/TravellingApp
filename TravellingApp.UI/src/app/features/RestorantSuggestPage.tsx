@@ -1,37 +1,62 @@
 import React, { useEffect, useState } from "react";
 import GoogleMaps from "./GoogleMaps.tsx";
 import "./styles/RestorantSuggestPage.css";
-import { Box } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Modal,
+  Typography,
+} from "@mui/material";
 
-const RestorantSuggest = ({maxOut}) => {
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 800,
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
+const RestorantSuggest = ({ maxOut }) => {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedRestaurant, setSelectedRestaurant] = useState<any | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedRestaurant, setSelectedRestaurant] = useState<any | null>(
+    null
+  );
+  const [searchQuery, setSearchQuery] = useState("");
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     fetchDataYelp();
   }, []);
 
-
   const fetchDataYelp = async () => {
     try {
-      const response = await fetch('http://localhost:3050/restaurants');
+      const response = await fetch("http://localhost:3050/restaurants");
 
       if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error("Failed to fetch data");
       }
-        const jsonData = await response.json();
-        setCoordinates(jsonData.coordinates);
-        setData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
+      const jsonData = await response.json();
+      setCoordinates(jsonData.coordinates);
+      setData(jsonData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleRestaurantClick = (restaurant: any) => {
@@ -39,56 +64,93 @@ const RestorantSuggest = ({maxOut}) => {
   };
 
   const filteredData = data.filter((restaurant) => {
-    const nameMatches = restaurant.name && restaurant.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const cityMatches = restaurant.city && restaurant.city.toLowerCase().includes(searchQuery.toLowerCase());
+    const nameMatches =
+      restaurant.name &&
+      restaurant.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const cityMatches =
+      restaurant.city &&
+      restaurant.city.toLowerCase().includes(searchQuery.toLowerCase());
     return nameMatches || cityMatches;
   });
-  
+
   const closeModal = () => {
     setSelectedRestaurant(null);
   };
 
-  return <>
-    <div>
-      <ul>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <div className="restaurant-list">
-          {filteredData.slice(0, maxOut).map((restaurant, index) => (
-            <Box
-            height={200}
-            width={200}
-            my={4}
-            display="flex"
-            alignItems="center"
-            gap={4}
-            p={2}
-            sx={{ border: '2px solid grey', padding: '20px' }}
+  return (
+    <>
+      {loading ? (
+        <Typography gutterBottom variant="h5" component="div">
+          Loading...
+        </Typography>
+      ) : (
+        <>
+          <Typography gutterBottom variant="h5" component="div">
+            Restaurant suggestions
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
           >
-            <div onClick={() => handleRestaurantClick(restaurant)}>
-              <h3>{restaurant.name}</h3>
-              <img src={restaurant.image_url} style={{ width: '150px', height: '140px' }} />
-            </div>
+            {filteredData.slice(0, maxOut).map((restaurant, index) => (
+              <Card sx={{ margin: 1 }}>
+                <CardMedia
+                  sx={{ height: 100, margin: 1 }}
+                  image={restaurant.image_url}
+                  title="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {restaurant.name}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    sx={{ borderBottom: 0.5, borderRight: 1, borderRadius: 1 }}
+                    onClick={() => {
+                      handleRestaurantClick(restaurant);
+                      setOpen(true);
+                    }}
+                  >
+                    See more
+                  </Button>
+                </CardActions>
+              </Card>
+            ))}
           </Box>
-          ))}
-        </div>
-        )}
-      </ul>
-
-      {selectedRestaurant && (
-        <div className="modal" onClick={closeModal}>
-          <div className="modal-content">
-            <span className="close">dancho</span>
-            <h2>{selectedRestaurant.name}</h2>
-            <p>Location: {selectedRestaurant.location.city}</p>
-            <p>Phone: {selectedRestaurant.phone}</p>
-            <GoogleMaps lat= {selectedRestaurant.coordinates.latitude} lng={selectedRestaurant.coordinates.longitude} />
-          </div>
-        </div>
+        </>
       )}
-    </div>
-  </>;
+      {selectedRestaurant && (
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          sx={{ display: "flex", wrap: "wrap" }}
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {selectedRestaurant.name}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Location: {selectedRestaurant.location.city}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Phone: {selectedRestaurant.phone}
+            </Typography>
+            <GoogleMaps
+              lat={selectedRestaurant.coordinates.latitude}
+              lng={selectedRestaurant.coordinates.longitude}
+            />
+          </Box>
+        </Modal>
+      )}
+    </>
+  );
 };
 
 export default RestorantSuggest;
