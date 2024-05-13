@@ -37,7 +37,6 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hotels/', views.PutEndpoint.get_hotels, name='get_hotels'),
-    path('hotelsPost/', views.PutEndpoint.put_hotels(), name='put_hotels'),
+    path('hotels/<str:city>/<str:startDate>/<str:endDate>/', views.get_hotels, name='get_hotels'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]

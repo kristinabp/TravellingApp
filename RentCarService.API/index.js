@@ -37,16 +37,46 @@ let cityGlobal = "";
 let startDateGlobal = "";
 let endDateGlobal = "";
 
+const dateRefactor = (oldDate) => {
+  const desiredYear = oldDate.getFullYear();
+  const desiredMonth = String(oldDate.getMonth() + 1).padStart(2, '0'); 
+  const desiredDay = String(oldDate.getDate()).padStart(2, '0');
+  
+  const finalFormat = `${desiredYear}-${desiredMonth}-${desiredDay}`;
+  return finalFormat;
+}
+
 app.post('/rentCarData', (req, res) => {
   const city = req.body.city;
   const startDate =  new Date(req.body.startDate);
   const endDate =  new Date(req.body.endDate);
 
   cityGlobal = city;
-  startDateGlobal = startDate;
-  endDateGlobal = endDate;
+  startDateGlobal = dateRefactor(startDate);
+  endDateGlobal = dateRefactor(endDate);
 
 });
+
+const returnedCar = () => {
+  const jsonData = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8');
+  const carData = JSON.parse(jsonData);
+  const currDate = dateRefactor(new Date());
+
+  for (let index = 0; index < 60; index++) {
+    if(carData.data[index].endDate <  currDate) {
+      carData.data[index].rentalStatus = "available";
+    }    
+  }
+
+  fs.writeFile(path.join(__dirname, 'data.json'), JSON.stringify(carData, null, 2), 'utf8', err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+
+    res.status(200).send('Rental information updated successfully');
+  });
+}
 
 /**
  * @swagger
@@ -71,28 +101,28 @@ app.get('/rentCar', (req, res) => {
   console.log("city" + cityGlobal);
   console.log("startDate" + startDateGlobal);
   console.log("EndDate" + endDateGlobal);
+  //returnedCar();
 
   try {
     const jsonData = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8');
     const carData = JSON.parse(jsonData);
 
-    // let availableCars = [];
-    // let availableCarIndex = 0;
+    let availableCars = [];
+    let availableCarIndex = 0;
 
-    // for (let index = 0; index < 60; index++) {
-    //     let firstDate = new Date(carData.data[index].startDate);
-    //     let lastDate = new Date(carData.data[index].endDate);
+    for (let index = 0; index < 60; index++) {
+        let firstDate = dateRefactor(new Date(carData.data[index].startDate));
+        let lastDate = dateRefactor(new Date(carData.data[index].endDate));
 
-    //     if(lastDate < startDateGlobal) {
-    //       if(carData.data[index].rentalStatus == "available" && carData.data[index].location == cityGlobal) {
-    //         availableCars[availableCarIndex] = carData.data[index];
-    //         availableCarIndex ++;
-    //       }
-    //     }
-  
-    // }
+        if(lastDate < startDateGlobal) {
+          if(carData.data[index].rentalStatus == "available" && carData.data[index].location == cityGlobal) {
+            availableCars[availableCarIndex] = carData.data[index];
+            availableCarIndex ++;
+          }
+        }
+    }
 
-    res.status(200).json(carData.data)//json(availableCars);
+    res.status(200).json(availableCars);
   } catch (error) {
       console.error('Error reading data from file:', error);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -103,17 +133,13 @@ app.post('/rentNewCar', (req, res) => {
   const { carId, rentalStatus } = req.body;
 
   console.log(carId)
-  console.log(startDate)
-  console.log(endDate)
 
   const jsonData = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8');
   const carData = JSON.parse(jsonData);
 
-  console.log(carData.data);
+  const selectedCar = carData.data.find(c => c.id == carId);
 
-  const selectedCar = carData.data.find(c => c.id === carId.id);
-
-  console.log(selectedCar);
+  console.log(carData.data.find(c => c.id === carId));
 
   if (!selectedCar) {
     return res.status(404).send('Car not found');
@@ -124,7 +150,7 @@ app.post('/rentNewCar', (req, res) => {
   selectedCar.endDate = endDateGlobal;
 
 
-  fs.writeFile(filePath, JSON.stringify(carData, null, 2), 'utf8', err => {
+  fs.writeFile(path.join(__dirname, 'data.json'), JSON.stringify(carData, null, 2), 'utf8', err => {
     if (err) {
       console.error(err);
       return res.status(500).send('Internal Server Error');
