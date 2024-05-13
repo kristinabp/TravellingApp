@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import GoogleMaps from "./GoogleMaps.tsx";
-import "./styles/RestorantSuggestPage.css";
 import {
   Box,
   Button,
@@ -96,7 +95,7 @@ const RestorantSuggest = ({ maxOut }) => {
             }}
           >
             {filteredData.slice(0, maxOut).map((restaurant, index) => (
-              <Card sx={{ margin: 1 }}>
+              <Card sx={{ margin: 1 }} key={index}>
                 <CardMedia
                   sx={{ height: 100, margin: 1 }}
                   image={restaurant.image_url}

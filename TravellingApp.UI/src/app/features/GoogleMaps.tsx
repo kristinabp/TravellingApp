@@ -9,7 +9,7 @@ import React from "react";
 const libraries = ["places", "geometry"];
 const mapContainerStyle = {
   width: "730px",
-  height: "200px",
+  height: "300px",
   display: "flex",
   wrap: "wrap",
 };

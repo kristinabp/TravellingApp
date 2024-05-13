@@ -9,7 +9,7 @@ import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import Home from "../features/HomePage.tsx";
 import RestorantSuggest from "../features/RestorantSuggestPage.tsx";
-import Wheather from "../features/WheatherPage.tsx";
+import WeatherChart from "../features/WheatherPage.tsx";
 import RentCar from "../features/RentCarPage.tsx";
 import Hotels from "../features/Hotels.tsx";
 import Monuments from "../features/Monuments.tsx";
@@ -35,7 +35,7 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/wheather" element={<Wheather />} />
+          <Route path="/wheather" element={<WeatherChart />} />
           <Route path="/restorantSuggest" element={<RestorantSuggest maxOut={30} />} />
           <Route path="/rentCar" element={<RentCar maxOut={60} />} />
           <Route path="/hotels" element={<Hotels maxOut={30} />} />

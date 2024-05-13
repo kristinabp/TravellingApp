@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./styles/HomePage.css";
 import TextField from "@mui/material/TextField";
 import { Box, Button, Container } from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
@@ -15,13 +14,28 @@ import Monuments from "./Monuments.tsx";
 
 const Home = () => {
   const [city, setCity] = useState("");
+  //const [width, setWidth] = useState(window.innerWidth);
+  //const [maxIn, setMaxIn] = useState(0);
   let hasData: boolean = true;
 
+  // if(width < 700) {
+  //   setMaxIn(3)
+  // }
+  // else if(width > 700 && width < 1400) {
+  //   setMaxIn(4)
+  // }
+  // else {
+  //   setMaxIn(5)
+  // }
+
+  // console.log(width)
+
+
   const [startDate, setStartDate] = React.useState<Dayjs | null>(
-    dayjs("2022-04-17T15:30")
+    dayjs("2024-06-01T15:30")
   );
   const [endDate, setEndDate] = React.useState<Dayjs | null>(
-    dayjs("2022-04-17T15:30")
+    dayjs("2024-06-08T15:30")
   );
 
   const goToHotelsPage = () => {
@@ -43,9 +57,7 @@ const Home = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(city);
-
-    console.log("test");
+    //console.log(window.innerWidth)
 
     fetch("http://localhost:3050/restaurantsData", {
       method: "POST",
@@ -62,14 +74,6 @@ const Home = () => {
         "Content-Type": "application/json",
       },
     });
-    /*
-    fetch("http://localhost:8008/monuments", {
-      method: "POST",
-      body: JSON.stringify({ city }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
 
     fetch("http://localhost:8000/hotels", {
       method: "POST",
@@ -77,7 +81,7 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    });*/
+    });
     hasData = true;
   };
 
@@ -128,7 +132,7 @@ const Home = () => {
               label="End date"
               defaultValue={dayjs("2022-04-17T15:30")}
               value={endDate}
-              onChange={(newValue) => setStartDate(newValue)}
+              onChange={(newValue) => setEndDate(newValue)}
             />
           </DemoContainer>
         </LocalizationProvider>
@@ -163,7 +167,7 @@ const Home = () => {
               padding: 0.5,
             }}
           >
-            <RentCar maxOut={5} />
+            <RentCar maxOut={3} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"
@@ -182,7 +186,7 @@ const Home = () => {
             p={2}
             sx={{ border: "1px solid grey" }}
           >
-            <Monuments maxOut={5} />
+            <Monuments maxOut={3} />
             <Button
               sx={{ display: "flex" }}
               variant="contained"

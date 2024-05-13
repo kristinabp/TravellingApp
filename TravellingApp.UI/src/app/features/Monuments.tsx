@@ -1,6 +1,18 @@
-import { Box } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Modal, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 800,
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  boxShadow: 24,
+  p: 4,
+  flexWrap: "wrap",
+};
 const Monuments = ({maxOut}) => {
     const [data, setData] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
@@ -12,7 +24,7 @@ const Monuments = ({maxOut}) => {
 
     const fetchData = async () => {
         try {
-        const response = await fetch('http://localhost:8008/monuments');
+        const response = await fetch('http://localhost:8008/monuments/Sofia');
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
@@ -33,49 +45,81 @@ const Monuments = ({maxOut}) => {
         setSelectedMonument(monument);
     };
 
-    const closeModal = () => {
-        setSelectedMonument(null);
-      };
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
-  return <>
-    <div>
-      <ul>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <div className="restaurant-list">
-          {data.slice(0, maxOut).map((monument, index) => (
+    const closeModal = () => {
+      setSelectedMonument(null);
+    };
+
+    return (
+    <>
+      {loading ? (
+        <Typography gutterBottom variant="h5" component="div">
+          Loading...
+        </Typography>
+      ) : (
+        <>
+          <Typography gutterBottom variant="h5" component="div">
+            Monument suggestions
+          </Typography>
           <Box
-            height={200}
-            width={250}
-            my={4}
-            display="flex"
-            alignItems="center"
-            gap={4}
-            p={2}
-            sx={{ border: '2px solid grey', padding: '20px' }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
           >
-            <div onClick={() => handleMonumentClick(monument)} key={index}>
-              <h2>{monument?.dataProvider?.slice(0, 2)}</h2>
-              <img src={monument.edmPreview} style={{ width: '130px', height: '120px' }} />
-            </div>
+            {data.slice(0, maxOut).map((monument, index) => (
+              <Card sx={{ margin: 1 }} key={index}>
+                <CardMedia
+                  sx={{ height: 100, margin: 1 }}
+                  image={monument.edmPreview}
+                  title="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {monument.dataProvider}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    sx={{ borderBottom: 0.5, borderRight: 1, borderRadius: 1 }}
+                    onClick={() => {
+                      handleMonumentClick(monument);
+                      setOpen(true);
+                    }}
+                  >
+                    See more
+                  </Button>
+                </CardActions>
+              </Card>
+            ))}
           </Box>
-          ))}
-        </div>
-        )}
-      </ul>
-      {selectedMonument && (
-        <div className="modal" onClick={closeModal}>
-          <div className="modal-content">
-            <span className="close">&times;</span>
-            <h2>{selectedMonument.dataProvider}</h2>
-            <img id="monumentImg" src={selectedMonument.edmPreview} />
-            <p>Description: {selectedMonument.dcDescription}</p>
-          </div>
-        </div>
+        </>
       )}
-    </div>
-  </>;
+      {selectedMonument && (
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          sx={{ display: "flex", wrap: "wrap" }}
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {selectedMonument.dataProvider}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Description: {selectedMonument.dcDescription}
+            </Typography>
+          </Box>
+        </Modal>
+      )}
+    </>
+  );
 };
 
 export default Monuments;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./styles/RentCarPage.css";
 import {
   Box,
   Button,
@@ -90,64 +89,6 @@ const RentCar = ({ maxOut }) => {
     setSelectedCar(null);
   };
 
-  /*(
-    <>
-      <div>
-        <ul>
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <div className="car-list">
-              {data.slice(0, maxOut).map((car, index) => (
-                <Box
-                  height={200}
-                  width={200}
-                  my={4}
-                  display="flex"
-                  alignItems="center"
-                  gap={4}
-                  p={2}
-                  sx={{ border: "2px solid grey", padding: "20px" }}
-                >
-                  <div onClick={() => handleCarClick(car)} key={index}>
-                    <h3>
-                      {car.brand} {car.model}
-                    </h3>
-                    <p>City: {car.location}</p>
-                    <img
-                      src={car.image}
-                      style={{ width: "130px", height: "120px" }}
-                    />
-                  </div>
-                </Box>
-              ))}
-            </div>
-          )}
-        </ul>
-
-        {selectedCar && (
-          <div className="modal" onClick={closeModal}>
-            <div className="modal-content">
-              <span className="close">&times;</span>
-              <h2>
-                {selectedCar.brand} {selectedCar.model}
-              </h2>
-              <p>City: {selectedCar.location}</p>
-              <p>Price per day: {selectedCar.price_per_day}</p>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={rentChecked}
-                  onChange={handleRentCheckboxChange}
-                />
-              </label>
-              <button onClick={handleRentSubmit}>Rent Car</button>
-            </div>
-          </div>
-        )}
-      </div>
-    </>
-  );*/
   return (
     <>
       {loading ? (
@@ -167,7 +108,7 @@ const RentCar = ({ maxOut }) => {
             }}
           >
             {data.slice(0, maxOut).map((car, index) => (
-              <Card sx={{ margin: 1 }}>
+              <Card sx={{ margin: 1 }} key={index}>
                 <CardMedia
                   sx={{ height: 100, margin: 1 }}
                   image={car.image}
